@@ -1,0 +1,12 @@
+a = 1
+b = 2
+array = [1, 2]
+
+while b < 4000000 do
+
+  a, b = b, a + b
+  array.push(b)
+
+end
+new_array = array.select{ |x| x % 2 == 0}
+puts new_array.sum
