@@ -1,0 +1,7 @@
+X = [*1..999].select{ |x| x % 3 == 0 }
+
+Y = [*1..999].select{ |x| x % 5 == 0 }
+
+Z = X | Y
+s = Z.sum
+puts s
