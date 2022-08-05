@@ -10,3 +10,8 @@ while b < 4000000 do
 end
 new_array = array.select{ |x| x % 2 == 0}
 puts new_array.sum
+
+ # 追記
+ a = 1, b = 2 #=> b = 2 と　a = [1, b]
+ a = 1; b = 2 #=> a = 1
+                  b = 2
