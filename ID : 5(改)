@@ -1,0 +1,5 @@
+n = 1
+for i in 2..20 do
+  n = n.lcm(i)
+end
+puts n
