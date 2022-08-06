@@ -1,0 +1,11 @@
+line = []
+for i in 1..100 do
+  a = i * i
+  line.push(a)
+end
+
+line1 = []
+for j in 1..100 do
+  line1.push(j)
+end
+puts line1.sum * line1.sum - line.sum
