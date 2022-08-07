@@ -1,0 +1,7 @@
+line = []
+(2..300000).each do |sorg|
+  sqrt = Math.sqrt(sorg)
+  fact = (2..sqrt).any? {|i| sorg % i == 0 }
+  line.push(sorg) unless fact
+end
+puts line[10000]
