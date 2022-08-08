@@ -1,0 +1,5 @@
+for a in 1..333 do
+  334.upto(997) do |c|
+    puts a * (1000-a-c) * c if c * c - a * a == (1000 - a - c) * (1000 - a - c)
+  end
+end
