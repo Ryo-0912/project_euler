@@ -5,3 +5,10 @@ Y = [*1..999].select{ |x| x % 5 == 0 }
 Z = X | Y
 s = Z.sum
 puts s
+
+# 別解 こっちの方がプログラム感ある
+def conditions_sum(x)
+  (1..x - 1).select { |num| num % 3 == 0 || num % 5 == 0 }.sum
+end
+
+puts conditions_sum(1000)
