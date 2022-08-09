@@ -8,7 +8,7 @@ for i in 1..999999 do
     else
       i = 3 * i + 1
     end
-    count = count + 1
+    count += 1
     line.push(count) if i == 1
   end
 end
