@@ -1,0 +1,16 @@
+line = []
+
+for i in 1..999999 do
+  count = 0
+  until i == 1 do
+    if i % 2 == 0
+      i = i / 2
+    else
+      i = 3 * i + 1
+    end
+    count = count + 1
+    line.push(count) if i == 1
+  end
+end
+
+puts line.index(line.max) + 2
