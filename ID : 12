@@ -1,0 +1,33 @@
+a = 0
+line = []
+for i in 1..99999 do
+  a = i + a
+  line.push(a)
+end
+
+line2 = []
+
+line.each do |x|
+  b = 1
+  while b <= x do
+    r = x % b
+    if r == 0
+      line2 << b
+    end
+    b += 1
+  end
+end
+
+line3 = line2.chunk_while{|line3,line2| line2!=1}.to_a
+# puts line3.class
+# puts line3[2].class
+
+line4 = []
+line3.each do |y|
+  line4.push(y.size)
+  if 500 < y.length
+    break
+  end
+end
+
+puts line[line4.size - 1]
