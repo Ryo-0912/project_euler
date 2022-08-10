@@ -1,0 +1,7 @@
+line = []
+1000.times do |n|
+  line.push(2**(n+1))
+end
+last_line = line.last.to_s.chars
+
+puts last_line.map { |x| x.to_i }.sum
