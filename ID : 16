@@ -5,3 +5,7 @@ end
 last_line = line.last.to_s.chars
 
 puts last_line.map { |x| x.to_i }.sum
+
+# 別解
+
+puts (2**1000).to_s.chars.map{ |x| x.to_i }.sum  # こんな簡単に階乗が表現できるみたい
