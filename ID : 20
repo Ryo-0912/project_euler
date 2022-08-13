@@ -1,0 +1,13 @@
+def f(n)
+  if n == 0
+    return 1
+  end
+  return n * f(n - 1)
+end
+
+a = f(gets.chomp.to_i)
+
+line = []
+line = a.to_s.chars
+
+puts line.map{ |b| b.to_i }.sum
