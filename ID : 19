@@ -1,0 +1,32 @@
+day_of_week = {月:0, 火:1, 水:2, 木:3, 金:4, 土:5, 日:6}
+youbi = []
+
+for new_year in 1901..2000
+  new_day = 0
+  while month < 13
+    if month == 2
+      if new_year%4 == 0
+        new_day = 29
+      elsif new_year%400!=0 && new_year%100 == 0
+        new_day = 28
+      else
+        new_day = 28
+      end
+    elsif month ==4 || month ==6 || month ==9 || month ==11
+      new_day = 30
+    else
+      new_day = 31
+    end
+    if new_year == 1901 && month == 1
+      youbi.push(day_of_week.key(day_of_week[:"火"]+(new_day%7)))
+    elsif day_of_week[youbi.last]+(new_day%7) >= 7
+      new_day_of_week = (day_of_week[youbi.last]+(new_day%7))%7
+      youbi.push(day_of_week.key(new_day_of_week))
+    else
+      youbi.push(day_of_week.key(day_of_week[youbi.last]+(new_day%7)))
+    end
+    month += 1
+  end
+end
+
+puts youbi.map{|x| x.to_s}.count("日")
