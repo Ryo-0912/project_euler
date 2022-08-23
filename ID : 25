@@ -1,0 +1,12 @@
+a=1
+b=1
+line=[0]
+line1=[]
+
+while line.last < 1000
+  a,b=b, a+b
+  line1.push(b)
+  line.push(b.to_s.chars.to_a.count)
+end
+
+puts line1.count+2
