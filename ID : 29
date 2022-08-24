@@ -1,0 +1,7 @@
+line=[]
+for i in 2..100
+  for j in 2..100
+    line.push(i**j)
+  end
+end
+puts line.uniq.count
