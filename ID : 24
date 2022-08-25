@@ -7,3 +7,76 @@ i=1
 	i=i+1
 end
 puts line
+
+# 別解
+# 辞書式順列 => 〇番目の文字が何かを求めるには、1文字目が何か、2文字目が何か、と順番に考えていけばいい
+class Array
+  nums = [0,1,2,3,4,5,6,7,8,9]
+  n = 100_0000
+
+  def perm_count(n)
+    n -= 1
+    arr = self
+    ans = []
+    while !arr.empty?
+      a = factorial(arr.size - 1)
+
+      # factorialで求めた数字が1周期となり、周期をまたぐと、先頭の数字が変わる
+      # ex) [0,1,2] [0,2,1]/[1,0,2][1,2,0]/[2,0,1][2,1,0]
+      # ex)の時、factorial(2)=2通り => 2通りで先頭の数字が変わっているのがわかる
+      # また、商の数字=与式の配列の添字となるのがポイント
+      m,n = n.divmod(a)
+
+      ans << (arr.delete_at(m))
+    end
+    return ans
+  end
+
+  def factorial(m)      #先頭の数字を固定したときのそれ以外の数字の順列
+    if m == 1
+      return 1
+    elsif m == 0
+      return 1
+    end
+    return m * factorial(m - 1)
+  end
+
+  puts nums.perm_count(n).join
+end
+
+class Array
+  nums = [0,1,2]
+  n = 5
+
+  def perm_count(n)
+    n -= 1
+    arr = self
+    ans = []
+    while !arr.empty?
+      a = factorial(arr.size - 1)
+
+      # factorialで求めた数字が1周期となり、周期をまたぐと、先頭の数字が変わる
+      # ex) [0,1,2] [0,2,1]/[1,0,2][1,2,0]/[2,0,1][2,1,0]
+      # ex)の時、factorial(2)=2通り => 2通りで先頭の数字が変わっているのがわかる
+      # また、商の数字=与式の配列の添字となるのがポイント
+
+      m,n = n.divmod(a) #計算結果 m,n = 4.divmod(2) = 2,0
+                        #        m,n = 0.divmod(1) = 0,1
+                        #        m,n = 1.divmod(1) = 1,0
+
+      ans << (arr.delete_at(m))
+    end
+    return ans
+  end
+
+  def factorial(m)      #先頭の数字を固定したときのそれ以外の数字の順列
+    if m == 1
+      return 1
+    elsif m == 0
+      return 1
+    end
+    return m * factorial(m - 1)
+  end
+
+  puts nums.perm_count(n).join
+end
