@@ -1,0 +1,12 @@
+line1=[]
+
+1.step(1001, 2) do |x|
+  if x == 1
+    line1.push(x)
+  else
+    sum = (x**2-(3*(x-1)))+(x**2-(2*(x-1)))+x**2-(x-1)+x**2
+    line1.push(sum)
+  end
+end
+
+puts line1.sum
